@@ -246,7 +246,7 @@ export const conversionEventTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
       },
@@ -261,7 +261,7 @@ export const conversionEventTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         conversion_event_id: {
@@ -281,7 +281,7 @@ export const conversionEventTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         event_name: {
@@ -312,7 +312,7 @@ export const conversionEventTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         conversion_event_id: {

@@ -365,7 +365,7 @@ export const dataFilterTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description:
             "The Google Analytics property ID. Can be a number or 'properties/NUMBER' format.",
         },
@@ -382,7 +382,7 @@ export const dataFilterTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         data_filter_id: {
@@ -402,7 +402,7 @@ export const dataFilterTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         filter_name: {
@@ -444,7 +444,7 @@ export const dataFilterTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         data_filter_id: {
@@ -477,7 +477,7 @@ export const dataFilterTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         data_filter_id: {

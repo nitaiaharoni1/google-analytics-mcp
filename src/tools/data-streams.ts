@@ -296,7 +296,7 @@ export const dataStreamTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
       },
@@ -312,7 +312,7 @@ export const dataStreamTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         data_stream_id: {
@@ -332,7 +332,7 @@ export const dataStreamTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         data_stream_id: {
@@ -352,7 +352,7 @@ export const dataStreamTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         data_stream_id: {
@@ -375,7 +375,7 @@ export const dataStreamTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         data_stream_id: {

@@ -259,7 +259,7 @@ export const audienceTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
       },
@@ -274,7 +274,7 @@ export const audienceTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         audience_id: {
@@ -294,7 +294,7 @@ export const audienceTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         display_name: {
@@ -328,7 +328,7 @@ export const audienceTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         audience_id: {

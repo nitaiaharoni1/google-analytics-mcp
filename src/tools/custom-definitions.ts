@@ -438,7 +438,7 @@ export const customDefinitionTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         parameter_name: {
@@ -472,7 +472,7 @@ export const customDefinitionTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         custom_dimension_id: {
@@ -499,7 +499,7 @@ export const customDefinitionTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         custom_dimension_id: {
@@ -519,7 +519,7 @@ export const customDefinitionTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         parameter_name: {
@@ -563,7 +563,7 @@ export const customDefinitionTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         custom_metric_id: {
@@ -590,7 +590,7 @@ export const customDefinitionTools: MCPToolDefinition[] = [
       type: "object",
       properties: {
         property_id: {
-          type: ["string", "number"],
+          type: "string",
           description: "The Google Analytics property ID.",
         },
         custom_metric_id: {
