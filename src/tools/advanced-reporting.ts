@@ -357,6 +357,7 @@ export const advancedReportingTools: MCPToolDefinition[] = [
           description: "Pivot configurations",
           items: {
             type: "object",
+            description: "Pivot configuration object",
             properties: {
               field_names: {
                 type: "array",
