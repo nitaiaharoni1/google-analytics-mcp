@@ -96,7 +96,7 @@ export async function initializeAnalyticsClients(): Promise<void> {
       auth,
     });
 
-    // Create Analytics Admin API alpha client (for data filters)
+    // Create Analytics Admin API alpha client (for advanced features)
     analyticsAdminAlphaClient = google.analyticsadmin({
       version: "v1alpha",
       auth,
@@ -174,7 +174,7 @@ export function __resetForTesting(): void {
 
 /**
  * Get authenticated HTTP client for REST API calls
- * Used for APIs not available in googleapis client (e.g., data filters)
+ * Used for APIs not available in googleapis client
  */
 export async function getAuthenticatedHttpClient(): Promise<any> {
   // Ensure clients are initialized to get auth

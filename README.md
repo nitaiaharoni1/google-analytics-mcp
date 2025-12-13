@@ -58,11 +58,9 @@ Restart Claude Desktop after setup.
 
 ### 🔍 **Data Filter Management**
 
-- **`list_data_filters`** - List all data filters for a property
-- **`get_data_filter`** - Get details of a specific data filter
-- **`create_data_filter`** - Create new data filters (internal traffic, developer traffic)
-- **`update_data_filter`** - Update existing data filters
-- **`delete_data_filter`** - Delete data filters
+⚠️ **Note**: Data filters are not available via the Google Analytics Admin API. You must create them manually in the Google Analytics UI.
+
+See [DATA_FILTERS_SETUP_GUIDE.md](./DATA_FILTERS_SETUP_GUIDE.md) for step-by-step instructions on setting up filters to exclude non-production traffic (localhost, staging domains, bots).
 
 ### 📡 **Data Streams Management**
 

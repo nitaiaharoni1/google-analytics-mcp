@@ -1,7 +1,7 @@
 # Google Analytics MCP - Complete Tools Inventory
 
 ## Date: December 13, 2025
-## Total Tools: 51
+## Total Tools: 46 (5 data filter tools not available via API)
 
 ---
 
@@ -28,13 +28,13 @@
 
 ---
 
-## 🔍 Data Filter Management (5 tools)
+## 🔍 Data Filter Management (0 tools - Not Available via API)
 
-10. ✅ **list_data_filters** - List all data filters for a property
-11. ✅ **get_data_filter** - Get details of a specific data filter
-12. ✅ **create_data_filter** - Create new data filters (internal traffic, developer traffic)
-13. ✅ **update_data_filter** - Update existing data filters
-14. ✅ **delete_data_filter** - Delete data filters
+⚠️ **Data filters are not available via the Google Analytics Admin API REST endpoints.**
+
+The API endpoint `/v1alpha/properties/{property}/dataFilters` returns 404 Not Found. Data filters must be created manually in the Google Analytics UI.
+
+**Workaround**: See [DATA_FILTERS_SETUP_GUIDE.md](./DATA_FILTERS_SETUP_GUIDE.md) for manual setup instructions.
 
 ---
 
@@ -129,7 +129,7 @@
 |----------|-------|-------|
 | Reporting | 2 | Basic + Realtime |
 | Admin | 7 | Accounts + Properties |
-| Data Filters | 5 | Full CRUD |
+| Data Filters | 0 | Not available via API - use UI |
 | Data Streams | 5 | Full CRUD |
 | Conversion Events | 4 | List, Get, Create, Delete |
 | Audiences | 4 | List, Get, Create, Archive |
