@@ -25,7 +25,7 @@ export async function getMetadata(args: {
         : `properties/${args.property_id}`;
 
     const response = await data.properties.getMetadata({
-      name: propertyName,
+      name: `${propertyName}/metadata`,
     });
 
     return {

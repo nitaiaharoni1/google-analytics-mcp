@@ -35,7 +35,7 @@ export async function listDataFilters(args: {
         ? args.property_id
         : `properties/${args.property_id}`;
 
-    const response = await (adminAlpha.properties as any).dataFilters.list({
+    const response = await (adminAlpha as any).listDataFilters({
       parent: propertyName,
     });
 
@@ -89,7 +89,7 @@ export async function getDataFilter(args: {
 
     const filterName = `${propertyName}/dataFilters/${args.data_filter_id}`;
 
-    const response = await (adminAlpha.properties as any).dataFilters.get({
+    const response = await (adminAlpha as any).getDataFilter({
       name: filterName,
     });
 
@@ -169,9 +169,9 @@ export async function createDataFilter(args: {
       );
     }
 
-    const response = await (adminAlpha.properties as any).dataFilters.create({
+    const response = await (adminAlpha as any).createDataFilter({
       parent: propertyName,
-      requestBody: dataFilter,
+      dataFilter: dataFilter,
     });
 
     return {
@@ -228,7 +228,7 @@ export async function updateDataFilter(args: {
     const filterName = `${propertyName}/dataFilters/${args.data_filter_id}`;
 
     // Get existing filter first
-    const existingResponse = await (adminAlpha.properties as any).dataFilters.get({
+    const existingResponse = await (adminAlpha as any).getDataFilter({
       name: filterName,
     });
 
@@ -265,10 +265,10 @@ export async function updateDataFilter(args: {
       throw new Error("No fields provided for update");
     }
 
-    const response = await (adminAlpha.properties as any).dataFilters.patch({
+    const response = await (adminAlpha as any).updateDataFilter({
       name: filterName,
-      updateMask: updateMask.join(","),
-      requestBody: existingFilter,
+      updateMask: { paths: updateMask },
+      dataFilter: existingFilter,
     });
 
     return {
@@ -321,7 +321,7 @@ export async function deleteDataFilter(args: {
 
     const filterName = `${propertyName}/dataFilters/${args.data_filter_id}`;
 
-    await (adminAlpha.properties as any).dataFilters.delete({
+    await (adminAlpha as any).deleteDataFilter({
       name: filterName,
     });
 
