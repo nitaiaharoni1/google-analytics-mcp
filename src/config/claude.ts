@@ -74,7 +74,7 @@ export function generateNpxConfig(
     mcpServers: {
       "google-analytics-mcp": {
         command: "npx",
-        args: ["mcp-google-analytics"],
+        args: ["google-analytics-mcp-server"],
         env,
       },
     },
