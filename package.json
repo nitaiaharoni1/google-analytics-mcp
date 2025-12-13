@@ -1,6 +1,6 @@
 {
   "name": "google-analytics-mcp-server",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Model Context Protocol server for Google Analytics - query reports, manage properties, configure data filters, and analyze website performance",
   "main": "dist/server.js",
   "types": "dist/server.d.ts",
@@ -67,10 +67,6 @@
   ],
   "author": "Nitai Aharoni <nitaiaharoni1@gmail.com>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nitaiaharoni1/google-analytics-mcp.git"
-  },
   "bugs": {
     "url": "https://github.com/nitaiaharoni1/google-analytics-mcp/issues"
   },

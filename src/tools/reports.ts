@@ -25,8 +25,15 @@ export async function runReport(args: {
   try {
     const { data } = await ensureAnalyticsClients();
 
+    // Normalize property_id to ensure it's in the correct format
+    const propertyName =
+      typeof args.property_id === "number"
+        ? `properties/${args.property_id}`
+        : args.property_id.startsWith("properties/")
+        ? args.property_id
+        : `properties/${args.property_id}`;
+
     const request: any = {
-      property: `properties/${args.property_id}`,
       dateRanges: args.date_ranges.map((dr) => ({
         startDate: dr.start_date,
         endDate: dr.end_date,
@@ -64,7 +71,7 @@ export async function runReport(args: {
     }
 
     const response = await data.properties.runReport({
-      property: `properties/${args.property_id}`,
+      property: propertyName,
       requestBody: request,
     });
 
@@ -115,6 +122,14 @@ export async function runRealtimeReport(args: {
   try {
     const { data } = await ensureAnalyticsClients();
 
+    // Normalize property_id to ensure it's in the correct format
+    const propertyName =
+      typeof args.property_id === "number"
+        ? `properties/${args.property_id}`
+        : args.property_id.startsWith("properties/")
+        ? args.property_id
+        : `properties/${args.property_id}`;
+
     const request: any = {
       metrics: args.metrics.map((m) => ({ name: m })),
     };
@@ -144,7 +159,7 @@ export async function runRealtimeReport(args: {
     }
 
     const response = await data.properties.runRealtimeReport({
-      property: `properties/${args.property_id}`,
+      property: propertyName,
       requestBody: request,
     });
 

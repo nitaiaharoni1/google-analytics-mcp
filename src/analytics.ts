@@ -18,6 +18,7 @@ let analyticsDataClient: analyticsdata_v1beta.Analyticsdata | null = null;
 let analyticsAdminClient: analyticsadmin_v1beta.Analyticsadmin | null = null;
 let analyticsAdminAlphaClient: analyticsadmin_v1alpha.Analyticsadmin | null = null;
 let authMethod: "oauth2" | "adc" = "oauth2";
+let currentAuthClient: any = null; // Store the authenticated client for REST API calls
 
 /**
  * Initialize Google Analytics API clients
@@ -37,6 +38,7 @@ export async function initializeAnalyticsClients(): Promise<void> {
         await ensureValidToken();
         auth = getOAuth2Client();
         authMethod = "oauth2";
+        currentAuthClient = auth; // Store auth client for REST API calls
         logger.success("✅ Using OAuth2 authentication");
       } catch (oauthError) {
         logger.warn(
@@ -60,6 +62,7 @@ export async function initializeAnalyticsClients(): Promise<void> {
 
         auth = await googleAuth.getClient();
         authMethod = "adc";
+        currentAuthClient = auth; // Store auth client for REST API calls
 
         const projectId = await googleAuth.getProjectId().catch(() => null);
         if (projectId) {
@@ -166,5 +169,23 @@ export function __resetForTesting(): void {
   analyticsDataClient = null;
   analyticsAdminClient = null;
   analyticsAdminAlphaClient = null;
+  currentAuthClient = null;
+}
+
+/**
+ * Get authenticated HTTP client for REST API calls
+ * Used for APIs not available in googleapis client (e.g., data filters)
+ */
+export async function getAuthenticatedHttpClient(): Promise<any> {
+  // Ensure clients are initialized to get auth
+  if (!isAnalyticsClientsInitialized()) {
+    await initializeAnalyticsClients();
+  }
+  
+  if (!currentAuthClient) {
+    throw new Error("Authentication client not available");
+  }
+  
+  return currentAuthClient;
 }
 

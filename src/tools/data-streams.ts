@@ -231,6 +231,64 @@ export async function createMeasurementProtocolSecret(args: {
 }
 
 /**
+ * Get a specific Measurement Protocol secret
+ */
+export async function getMeasurementProtocolSecret(args: {
+  property_id: string | number;
+  data_stream_id: string;
+  secret_id: string;
+}): Promise<MCPResult> {
+  try {
+    const { admin } = await ensureAnalyticsClients();
+
+    const propertyName =
+      typeof args.property_id === "number"
+        ? `properties/${args.property_id}`
+        : args.property_id.startsWith("properties/")
+        ? args.property_id
+        : `properties/${args.property_id}`;
+
+    const secretName = `${propertyName}/dataStreams/${args.data_stream_id}/measurementProtocolSecrets/${args.secret_id}`;
+
+    const response =
+      await admin.properties.dataStreams.measurementProtocolSecrets.get({
+        name: secretName,
+      });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify(response.data, null, 2),
+        },
+      ],
+      isError: false,
+    };
+  } catch (error) {
+    logger.error(
+      `Error getting Measurement Protocol secret: ${(error as Error).message}`
+    );
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify(
+            {
+              success: false,
+              error: "GetMeasurementProtocolSecretError",
+              message: (error as Error).message,
+            },
+            null,
+            2
+          ),
+        },
+      ],
+      isError: true,
+    };
+  }
+}
+
+/**
  * Delete a Measurement Protocol secret
  */
 export async function deleteMeasurementProtocolSecret(args: {
@@ -343,6 +401,30 @@ export const dataStreamTools: MCPToolDefinition[] = [
       required: ["property_id", "data_stream_id"],
     },
     handler: listMeasurementProtocolSecrets,
+  },
+  {
+    name: "get_measurement_protocol_secret",
+    description:
+      "Retrieves the details of a specific Measurement Protocol secret by its ID.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        property_id: {
+          type: "string",
+          description: "The Google Analytics property ID.",
+        },
+        data_stream_id: {
+          type: "string",
+          description: "The ID of the data stream.",
+        },
+        secret_id: {
+          type: "string",
+          description: "The ID of the secret to retrieve.",
+        },
+      },
+      required: ["property_id", "data_stream_id", "secret_id"],
+    },
+    handler: getMeasurementProtocolSecret,
   },
   {
     name: "create_measurement_protocol_secret",
