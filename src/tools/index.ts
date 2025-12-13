@@ -5,6 +5,11 @@
 import { reportTools } from "./reports";
 import { adminTools } from "./admin";
 import { dataFilterTools } from "./data-filters";
+import { metadataTools } from "./metadata";
+import { dataStreamTools } from "./data-streams";
+import { conversionEventTools } from "./conversion-events";
+import { audienceTools } from "./audiences";
+import { customDefinitionTools } from "./custom-definitions";
 import { logger } from "../utils/logger";
 import {
   MCPToolDefinition,
@@ -93,7 +98,16 @@ export function createValidationError(
  * Get all tool definitions
  */
 export function getToolDefinitions(): MCPToolDefinition[] {
-  return [...reportTools, ...adminTools, ...dataFilterTools];
+  return [
+    ...reportTools,
+    ...adminTools,
+    ...dataFilterTools,
+    ...metadataTools,
+    ...dataStreamTools,
+    ...conversionEventTools,
+    ...audienceTools,
+    ...customDefinitionTools,
+  ];
 }
 
 /**

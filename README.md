@@ -46,6 +46,8 @@ Restart Claude Desktop after setup.
 
 - **`run_report`** - Query historical Analytics data with custom dimensions, metrics, date ranges, and filters
 - **`run_realtime_report`** - Get real-time Analytics data for active users, events, and current activity
+- **`get_metadata`** - Discover available dimensions and metrics for a property (essential for report building)
+- **`run_audience_export`** - Export audience data for analysis
 
 ### 🛠️ **Admin Tools**
 
@@ -61,6 +63,37 @@ Restart Claude Desktop after setup.
 - **`create_data_filter`** - Create new data filters (internal traffic, developer traffic)
 - **`update_data_filter`** - Update existing data filters
 - **`delete_data_filter`** - Delete data filters
+
+### 📡 **Data Streams Management**
+
+- **`list_data_streams`** - List all data streams (web, iOS, Android) for a property
+- **`get_data_stream`** - Get details of a specific data stream
+- **`list_measurement_protocol_secrets`** - List Measurement Protocol API secrets
+- **`create_measurement_protocol_secret`** - Create a new Measurement Protocol secret
+- **`delete_measurement_protocol_secret`** - Delete a Measurement Protocol secret
+
+### 🎯 **Conversion Events Management**
+
+- **`list_conversion_events`** - List all conversion events for a property
+- **`get_conversion_event`** - Get details of a specific conversion event
+- **`create_conversion_event`** - Create a new conversion event (track key actions)
+- **`delete_conversion_event`** - Delete a conversion event
+
+### 👥 **Audiences Management**
+
+- **`list_audiences`** - List all audiences (user segments) for a property
+- **`get_audience`** - Get details of a specific audience
+- **`create_audience`** - Create a new audience based on filter expressions
+- **`archive_audience`** - Archive (soft delete) an audience
+
+### 📏 **Custom Definitions Management**
+
+- **`create_custom_dimension`** - Create a new custom dimension
+- **`update_custom_dimension`** - Update an existing custom dimension
+- **`archive_custom_dimension`** - Archive a custom dimension
+- **`create_custom_metric`** - Create a new custom metric
+- **`update_custom_metric`** - Update an existing custom metric
+- **`archive_custom_metric`** - Archive a custom metric
 
 ## 🔑 Authentication
 
@@ -113,6 +146,26 @@ Show me the most popular events in my Analytics property in the last 180 days
 
 ```
 Create a data filter to exclude Playwright automation traffic
+```
+
+### Discover Available Metrics
+
+```
+Get metadata for my property to see what dimensions and metrics are available
+```
+
+### Manage Conversion Events
+
+```
+List all conversion events for my property
+Create a new conversion event for 'purchase' events
+```
+
+### Manage Data Streams
+
+```
+List all data streams for my property
+Create a Measurement Protocol secret for server-side tracking
 ```
 
 ### Get Property Information
