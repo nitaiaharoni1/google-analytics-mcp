@@ -197,6 +197,7 @@ export const reportTools: MCPToolDefinition[] = [
           description: "Array of date ranges to include in the report",
           items: {
             type: "object",
+            description: "Date range object",
             properties: {
               start_date: {
                 type: "string",
@@ -219,12 +220,12 @@ export const reportTools: MCPToolDefinition[] = [
         dimensions: {
           type: "array",
           description: "Array of dimension names to include",
-          items: { type: "string" },
+          items: { type: "string", description: "Dimension name" },
         },
         metrics: {
           type: "array",
           description: "Array of metric names to include (required)",
-          items: { type: "string" },
+          items: { type: "string", description: "Metric name" },
         },
         dimension_filter: {
           type: "object",
@@ -237,7 +238,7 @@ export const reportTools: MCPToolDefinition[] = [
         order_bys: {
           type: "array",
           description: "Optional array of order by specifications",
-          items: { type: "object" },
+          items: { type: "object", description: "Order by specification object" },
         },
         limit: {
           type: "number",
@@ -271,12 +272,12 @@ export const reportTools: MCPToolDefinition[] = [
         dimensions: {
           type: "array",
           description: "Array of realtime dimension names to include",
-          items: { type: "string" },
+          items: { type: "string", description: "Realtime dimension name" },
         },
         metrics: {
           type: "array",
           description: "Array of realtime metric names to include (required)",
-          items: { type: "string" },
+          items: { type: "string", description: "Realtime metric name" },
         },
         dimension_filter: {
           type: "object",
@@ -289,7 +290,7 @@ export const reportTools: MCPToolDefinition[] = [
         order_bys: {
           type: "array",
           description: "Optional array of order by specifications",
-          items: { type: "object" },
+          items: { type: "object", description: "Order by specification object" },
         },
         limit: {
           type: "number",

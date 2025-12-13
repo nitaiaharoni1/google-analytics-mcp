@@ -548,7 +548,7 @@ export const customDefinitionTools: MCPToolDefinition[] = [
         },
         restricted_metric_type: {
           type: "array",
-          items: { type: "string" },
+          items: { type: "string", description: "Restricted metric type name" },
           description: "Optional restricted metric types.",
         },
       },

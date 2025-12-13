@@ -35,7 +35,7 @@ export async function listDataFilters(args: {
         ? args.property_id
         : `properties/${args.property_id}`;
 
-    const response = await adminAlpha.properties.dataFilters.list({
+    const response = await (adminAlpha.properties as any).dataFilters.list({
       parent: propertyName,
     });
 
@@ -89,7 +89,7 @@ export async function getDataFilter(args: {
 
     const filterName = `${propertyName}/dataFilters/${args.data_filter_id}`;
 
-    const response = await adminAlpha.properties.dataFilters.get({
+    const response = await (adminAlpha.properties as any).dataFilters.get({
       name: filterName,
     });
 
@@ -169,7 +169,7 @@ export async function createDataFilter(args: {
       );
     }
 
-    const response = await adminAlpha.properties.dataFilters.create({
+    const response = await (adminAlpha.properties as any).dataFilters.create({
       parent: propertyName,
       requestBody: dataFilter,
     });
@@ -228,7 +228,7 @@ export async function updateDataFilter(args: {
     const filterName = `${propertyName}/dataFilters/${args.data_filter_id}`;
 
     // Get existing filter first
-    const existingResponse = await adminAlpha.properties.dataFilters.get({
+    const existingResponse = await (adminAlpha.properties as any).dataFilters.get({
       name: filterName,
     });
 
@@ -265,7 +265,7 @@ export async function updateDataFilter(args: {
       throw new Error("No fields provided for update");
     }
 
-    const response = await adminAlpha.properties.dataFilters.patch({
+    const response = await (adminAlpha.properties as any).dataFilters.patch({
       name: filterName,
       updateMask: updateMask.join(","),
       requestBody: existingFilter,
@@ -321,7 +321,7 @@ export async function deleteDataFilter(args: {
 
     const filterName = `${propertyName}/dataFilters/${args.data_filter_id}`;
 
-    await adminAlpha.properties.dataFilters.delete({
+    await (adminAlpha.properties as any).dataFilters.delete({
       name: filterName,
     });
 

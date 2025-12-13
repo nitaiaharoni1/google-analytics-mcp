@@ -109,8 +109,8 @@ export async function runAudienceExport(args: {
       requestBody.limit = args.limit;
     }
 
-    const response = await data.properties.runAudienceExport({
-      name: propertyName,
+    const response = await (data.properties as any).audienceExports.run({
+      name: args.audience_export_name,
       requestBody,
     });
 
@@ -184,10 +184,11 @@ export const metadataTools: MCPToolDefinition[] = [
           description: "Optional date ranges for the export",
           items: {
             type: "object",
+            description: "Date range object",
             properties: {
-              start_date: { type: "string" },
-              end_date: { type: "string" },
-              name: { type: "string" },
+              start_date: { type: "string", description: "Start date in YYYY-MM-DD format" },
+              end_date: { type: "string", description: "End date in YYYY-MM-DD format" },
+              name: { type: "string", description: "Optional name for this date range" },
             },
             required: ["start_date", "end_date"],
           },
@@ -195,12 +196,12 @@ export const metadataTools: MCPToolDefinition[] = [
         dimensions: {
           type: "array",
           description: "Optional dimensions to include",
-          items: { type: "string" },
+          items: { type: "string", description: "Dimension name" },
         },
         metrics: {
           type: "array",
           description: "Optional metrics to include",
-          items: { type: "string" },
+          items: { type: "string", description: "Metric name" },
         },
         offset: {
           type: "number",

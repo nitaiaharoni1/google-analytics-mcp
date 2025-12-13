@@ -24,7 +24,7 @@ export interface MCPResult {
 
 // MCP Tool Input Schema Property
 export interface MCPInputProperty {
-  type: string;
+  type: string | string[];
   description: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   default?: any; // Default value can be any JSON-serializable type
